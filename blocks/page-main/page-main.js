@@ -10,11 +10,10 @@ export default class PageMain extends React.Component {
     render() {
         return (
             <Page
-                styles={['index.css']}
-                scripts={['index.js']}
+                styles={['page-main.css']}
+                scripts={['page-main.js']}
 
-                title='Hello world!'
-                pageComponent = '/blocks/page-main/page-main.js'>
+                title='Hello world!'>
                     <Counter />
             </Page>
         );
@@ -23,4 +22,8 @@ export default class PageMain extends React.Component {
     componentWillUnmount() {
         clearInterval(timer);
     }
+}
+
+if (typeof window !== 'undefined') {
+    React.render(<PageMain />, document);
 }

@@ -7,7 +7,6 @@ export default class Page extends React.Component {
     render() {
         var scripts = (this.props.scripts || []).map(getScript);
         var styles = (this.props.styles || []).map(getStyle);
-        var pageComponent = this.props.pageComponent;
         var title = this.props.title;
         var children = this.props.children;
 
@@ -20,13 +19,6 @@ export default class Page extends React.Component {
                 <body>
                     {children}
                     {scripts}
-                    <script dangerouslySetInnerHTML={{__html:
-                        `var React = require('react');
-                        var PageComponent = require("${pageComponent}");
-
-                        var Page = React.createFactory(PageComponent);
-                        React.render(Page(), document);`}}>
-                    </script>
                 </body>
             </html>
         );
