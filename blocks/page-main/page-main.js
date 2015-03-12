@@ -16,7 +16,12 @@ module.exports = React.createClass({
     },
     render: function() {
         return (
-            <Page title="Hello world!" {...this.props}>
+            <Page
+                styles={['index.css']}
+                scripts={['index.js']}
+
+                title='Hello world!'
+                pageComponent = '/blocks/page-main/page-main.js'>
                     <Counter />
             </Page>
         );

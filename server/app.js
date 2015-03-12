@@ -7,15 +7,12 @@ var app = express();
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/', function(req, res){
-    var Page = require('../blocks/page-main/page-main');
-    res.send(
-        React.renderToString(
-            <Page
-                styles={['index.css']}
-                scripts={['index.js']}
-                pageComponent='/blocks/page-main/page-main.js' />
-        )
-    );
+    res.send(renderPage('../blocks/page-main/page-main'));
 });
 
 module.exports = app;
+
+function renderPage(pageComponent) {
+    var Page = require(pageComponent);
+    return React.renderToString(<Page />);
+}

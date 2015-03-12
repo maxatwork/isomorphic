@@ -4,18 +4,23 @@ module.exports = React.createClass({
   render: function() {
     var scripts = (this.props.scripts || []).map(getScript);
     var styles = (this.props.styles || []).map(getStyle);
+    var pageComponent = this.props.pageComponent;
+    var title = this.props.title;
+    var children = this.props.children;
 
     return (
         <html>
             <head>
-                <title>{this.props.title}</title>
+                <title>{title}</title>
                 {styles}
             </head>
             <body>
-                {this.props.children}
+                {children}
                 {scripts}
                 <script dangerouslySetInnerHTML={{__html:
-                    "var React = require('react');var Page = React.createFactory(require('" + this.props.pageComponent + "'));React.render(Page(), document.documentElement);"}}>
+                    `var React = require('react');
+                    var Page = React.createFactory(require("${pageComponent}"));
+                    React.render(Page(), document);`}}>
                 </script>
             </body>
         </html>
