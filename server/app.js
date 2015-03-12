@@ -9,7 +9,7 @@ var app = express();
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/', function(req, res){
-    res.send(renderPage('../blocks/page-main/page-main'));
+    res.send(renderPage('../bundles/index/index'));
 });
 
 module.exports = app;

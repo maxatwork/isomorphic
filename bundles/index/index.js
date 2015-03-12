@@ -1,17 +1,17 @@
 'use strict';
 
 import React from 'react';
-import Page from '../page/page';
-import Counter from '../counter/counter';
+import Page from '../../blocks/page';
+import Counter from '../../blocks/counter';
 
 var timer = null;
 
-export default class PageMain extends React.Component {
+export default class Index extends React.Component {
     render() {
         return (
             <Page
-                styles={['page-main.css']}
-                scripts={['page-main.js']}
+                styles={['index.css']}
+                scripts={['index.js']}
 
                 title='Hello world!'>
                     <Counter />
@@ -25,5 +25,5 @@ export default class PageMain extends React.Component {
 }
 
 if (typeof window !== 'undefined') {
-    React.render(<PageMain />, document);
+    React.render(<Index />, document);
 }

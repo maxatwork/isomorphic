@@ -17,7 +17,7 @@ export default class Counter extends React.Component {
         this.setState({seconds: this.state.seconds + 1});
     }
     render() {
-        return <h1>Hello world for {this.state.seconds} seconds!</h1>;
+        return <h1 className='counter'>Hello world for {this.state.seconds} seconds!</h1>;
     }
 
     componentWillUnmount() {
