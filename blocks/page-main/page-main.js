@@ -1,20 +1,13 @@
-var React = require('react');
-var Page = require('../page/page');
-var Counter = require('../counter/counter');
+'use strict';
+
+import React from 'react';
+import Page from '../page/page';
+import Counter from '../counter/counter';
 
 var timer = null;
 
-module.exports = React.createClass({
-    getInitialState: function() {
-        return {seconds: 0};
-    },
-    componentDidMount: function () {
-        timer = setInterval(this.tick, 1000);
-    },
-    tick: function() {
-        this.setState({seconds: this.state.seconds + 1});
-    },
-    render: function() {
+export default class PageMain extends React.Component {
+    render() {
         return (
             <Page
                 styles={['index.css']}
@@ -25,8 +18,9 @@ module.exports = React.createClass({
                     <Counter />
             </Page>
         );
-    },
-    componentWillUnmount: function() {
+    }
+
+    componentWillUnmount() {
         clearInterval(timer);
     }
-});
+}

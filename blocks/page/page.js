@@ -1,32 +1,37 @@
-var React = require('react');
+'use strict';
 
-module.exports = React.createClass({
-  render: function() {
-    var scripts = (this.props.scripts || []).map(getScript);
-    var styles = (this.props.styles || []).map(getStyle);
-    var pageComponent = this.props.pageComponent;
-    var title = this.props.title;
-    var children = this.props.children;
+import React from 'react';
 
-    return (
-        <html>
-            <head>
-                <title>{title}</title>
-                {styles}
-            </head>
-            <body>
-                {children}
-                {scripts}
-                <script dangerouslySetInnerHTML={{__html:
-                    `var React = require('react');
-                    var Page = React.createFactory(require("${pageComponent}"));
-                    React.render(Page(), document);`}}>
-                </script>
-            </body>
-        </html>
-    );
-  }
-});
+
+export default class Page extends React.Component {
+    render() {
+        var scripts = (this.props.scripts || []).map(getScript);
+        var styles = (this.props.styles || []).map(getStyle);
+        var pageComponent = this.props.pageComponent;
+        var title = this.props.title;
+        var children = this.props.children;
+
+        return (
+            <html>
+                <head>
+                    <title>{title}</title>
+                    {styles}
+                </head>
+                <body>
+                    {children}
+                    {scripts}
+                    <script dangerouslySetInnerHTML={{__html:
+                        `var React = require('react');
+                        var PageComponent = require("${pageComponent}");
+
+                        var Page = React.createFactory(PageComponent);
+                        React.render(Page(), document);`}}>
+                    </script>
+                </body>
+            </html>
+        );
+    }
+}
 
 
 function getStyle(style, id) {

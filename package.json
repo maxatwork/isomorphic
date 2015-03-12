@@ -11,21 +11,19 @@
   "license": "MIT",
   "devDependencies": {
     "babelify": "^5.0.4",
-    "browserify": "^8.1.3",
+    "browserify": "^9.0.3",
     "enb": "^0.15.0",
     "enb-bembundle": "^1.1.0",
     "enb-browserify": "^0.1.0",
-    "enb-stylus": "^1.2.2",
-    "react-tools": "^0.12.2",
-    "stylus": "^0.50.0"
+    "enb-stylus": "^1.2.3",
+    "react-tools": "^0.13.0"
   },
   "dependencies": {
     "babel": "^4.7.8",
-    "envify": "^3.2.0",
-    "express": "^4.11.2",
-    "lodash": "^3.2.0",
+    "express": "^4.12.2",
+    "lodash": "^3.5.0",
     "node-jsx": "^0.12.4",
-    "react": "^0.12.2",
+    "react": "^0.13.0",
     "react-components": "git://github.com/verkholantsev/react-components"
   },
   "browserify": {
