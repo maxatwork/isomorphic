@@ -2,8 +2,8 @@ var React = require('react');
 
 module.exports = React.createClass({
   render: function() {
-    var scripts = (this.props.scripts || []).map((script) => (<script src={script} />));
-    var styles = (this.props.styles || []).map((style) => (<link rel="stylesheet" href={style} />))
+    var scripts = (this.props.scripts || []).map(getScript);
+    var styles = (this.props.styles || []).map(getStyle);
 
     return (
         <html>
@@ -22,3 +22,12 @@ module.exports = React.createClass({
     );
   }
 });
+
+
+function getStyle(style, id) {
+    return (<link rel="stylesheet" key={id} href={style} />);
+}
+
+function getScript(src, id) {
+    return (<script key={id} src={src} />);
+}

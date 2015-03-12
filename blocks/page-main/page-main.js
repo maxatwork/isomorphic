@@ -1,6 +1,6 @@
 var React = require('react');
-var Page = require('../page/page.jsx');
-var Counter = require('../counter/counter.jsx');
+var Page = require('../page/page');
+var Counter = require('../counter/counter');
 
 var timer = null;
 
