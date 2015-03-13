@@ -3,7 +3,7 @@ deps:
 	mkdir public
 
 static:
-	enb make
+	./node_modules/.bin/enb make --no-cache
 
 run:
 	node server

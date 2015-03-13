@@ -2,7 +2,6 @@
 
 import React from 'react';
 
-
 export default class Page extends React.Component {
     render() {
         var scripts = (this.props.scripts || []).map(getScript);
@@ -24,7 +23,6 @@ export default class Page extends React.Component {
         );
     }
 }
-
 
 function getStyle(style, id) {
     return (<link rel="stylesheet" key={id} href={style} />);
