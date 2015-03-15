@@ -8,6 +8,7 @@ export default class Page extends React.Component {
         var styles = (this.props.styles || []).map(getStyle);
         var title = this.props.title;
         var children = this.props.children;
+        var initialState = this.props.initialState;
 
         return (
             <html>
@@ -17,6 +18,9 @@ export default class Page extends React.Component {
                 </head>
                 <body>
                     {children}
+                    <script dangerouslySetInnerHTML={{__html: `
+                        var __initialState=${JSON.stringify(initialState)}
+                    `}} />
                     {scripts}
                 </body>
             </html>

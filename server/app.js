@@ -9,12 +9,17 @@ var app = express();
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/', function(req, res){
-    res.send(renderPage('../bundles/index/index'));
+    res.send(renderPage('../bundles/index/index', {
+        filters: {
+            foo: req.query.foo || '',
+            bar: req.query.bar || ''
+        }
+    }));
 });
 
 module.exports = app;
 
-function renderPage(pageComponent) {
+function renderPage(pageComponent, initialState) {
     var Page = require(pageComponent);
-    return React.renderToString(<Page />);
+    return React.renderToString(<Page initialState={initialState} />);
 }

@@ -4,19 +4,29 @@ import React from 'react';
 import Page from '../../blocks/page/page';
 import Counter from '../../blocks/counter/counter';
 import Header from '../../blocks/header/header';
+import Filters from '../../blocks/filters/filters';
 
 var timer = null;
 
 export default class Index extends React.Component {
+    constructor(props) {
+        var initialState = props.initialState;
+        this.state = {
+            filters: initialState.filters
+        };
+    }
+
     render() {
         return (
             <Page
                 styles={['index.css']}
                 scripts={['index.js']}
 
-                title='Hello world!'>
+                title='Hello world!'
+                {...this.props}>
                     <Header />
                     <Counter />
+                    <Filters value={this.state.filters} />
             </Page>
         );
     }
@@ -27,5 +37,5 @@ export default class Index extends React.Component {
 }
 
 if (typeof window !== 'undefined') {
-    React.render(<Index />, document);
+    React.render(<Index initialState={__initialState} />, document);
 }
