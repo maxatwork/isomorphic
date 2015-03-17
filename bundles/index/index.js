@@ -6,8 +6,6 @@ import Counter from '../../blocks/counter/counter';
 import Header from '../../blocks/header/header';
 import Filters from '../../blocks/filters/filters';
 
-var timer = null;
-
 export default class Index extends React.Component {
     constructor(props) {
         var initialState = props.initialState;
@@ -29,10 +27,6 @@ export default class Index extends React.Component {
                     <Filters value={this.state.filters} />
             </Page>
         );
-    }
-
-    componentWillUnmount() {
-        clearInterval(timer);
     }
 }
 
